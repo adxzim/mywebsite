@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projects portfolio - homelab IT experiments">
+  <title>Projects - Your Name</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/main.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Your Name</div>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="../">Home</a>
+      <a href="../projects/">Projects</a>
+      <a href="../about/">About</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+    <div class="filters">
+      <button data-filter="all">All</button>
+      <button data-filter="docker">Docker</button>
+      <button data-filter="networking">Networking</button>
+      <button data-filter="automation">Automation</button>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card" data-tags="docker automation">
+        <div class="thumb" aria-hidden="true">
+          <svg width="100%" height="100%" viewBox="0 0 200 100"><rect width="200" height="100" fill="#ddd"/></svg>
+        </div>
+        <h2>Project 1</h2>
+        <p>Short description of Project 1.</p>
+        <ul class="tags">
+          <li>Docker</li>
+          <li>Automation</li>
+        </ul>
+        <p><a href="#">Live</a> | <a href="#">Repo</a></p>
+      </article>
+
+      <article class="project-card" data-tags="networking">
+        <div class="thumb" aria-hidden="true">
+          <svg width="100%" height="100%" viewBox="0 0 200 100"><rect width="200" height="100" fill="#ddd"/></svg>
+        </div>
+        <h2>Project 2</h2>
+        <p>Short description of Project 2.</p>
+        <ul class="tags">
+          <li>Networking</li>
+        </ul>
+        <p><a href="#">Live</a> | <a href="#">Repo</a></p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Your Name. <a href="https://github.com/your-username">GitHub</a></p>
+  </footer>
+</body>
+</html>
