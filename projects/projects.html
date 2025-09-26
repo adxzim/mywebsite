@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<!-- projects.html -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Project list — Your homelab projects with tags and links." />
+  <title>Your Name — Projects</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="logo"><a href="index.html">Your<span class="logo-accent">Name</span></a></div>
+
+      <button class="nav-toggle" id="navToggleProjects" aria-expanded="false" aria-controls="siteNavProjects" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav id="siteNavProjects" class="site-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="projects" class="container" role="main">
+    <header class="page-header">
+      <h1>Projects</h1>
+      <p class="muted">Filter projects by technology tag. Cards have short summaries and links.</p>
+    </header>
+
+    <div class="controls" role="region" aria-label="Project filters">
+      <label for="filter">Filter by tag:</label>
+      <div class="filters" id="filter">
+        <button class="filter-btn active" data-tag="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-tag="Docker" aria-pressed="false">Docker</button>
+        <button class="filter-btn" data-tag="Ansible" aria-pressed="false">Ansible</button>
+        <button class="filter-btn" data-tag="Prometheus" aria-pressed="false">Prometheus</button>
+        <button class="filter-btn" data-tag="Grafana" aria-pressed="false">Grafana</button>
+        <button class="filter-btn" data-tag="QEMU" aria-pressed="false">QEMU</button>
+      </div>
+    </div>
+
+    <section class="grid projects-grid" aria-live="polite">
+      <!-- Each card uses data-tags (comma-separated) for JS filtering -->
+      <article class="card project-card" data-tags="Docker,Prometheus,Grafana" tabindex="0" aria-labelledby="proj-1-title">
+        <div class="thumb" aria-hidden="true">
+          <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Project 1 thumbnail">
+            <rect width="100%" height="100%" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.08"></rect>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Monitoring</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 id="proj-1-title">Monitoring Stack</h3>
+          <p class="muted">Prometheus + Grafana deployed with Docker Compose; alerting rules and dashboards.</p>
+          <p class="tags" aria-hidden="true"><span>Prometheus</span><span>Grafana</span><span>Docker</span></p>
+          <p class="card-links">
+            <a href="#" aria-label="Open live demo placeholder">Live</a>
+            <a href="#" aria-label="View repo placeholder">Repo</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="card project-card" data-tags="Ansible,QEMU" tabindex="0" aria-labelledby="proj-2-title">
+        <div class="thumb" aria-hidden="true">
+          <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Project 2 thumbnail">
+            <rect width="100%" height="100%" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.08"></rect>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">VM Automation</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 id="proj-2-title">VM Build Automation</h3>
+          <p class="muted">Ansible playbooks to build and configure QEMU/KVM VMs with backups and snapshots.</p>
+          <p class="tags" aria-hidden="true"><span>Ansible</span><span>QEMU</span></p>
+          <p class="card-links">
+            <a href="#" aria-label="Open live demo placeholder">Live</a>
+            <a href="#" aria-label="View repo placeholder">Repo</a>
+          </p>
+        </div>
+      </article>
+
+      <article class="card project-card" data-tags="Docker,Bash" tabindex="0" aria-labelledby="proj-3-title">
+        <div class="thumb" aria-hidden="true">
+          <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Project 3 thumbnail">
+            <rect width="100%" height="100%" rx="6" fill="none" stroke="currentColor" stroke-opacity="0.08"></rect>
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Backup</text>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 id="proj-3-title">Backup Orchestration</h3>
+          <p class="muted">Scripts and Docker tasks to snapshot data and rotate backups to remote storage.</p>
+          <p class="tags" aria-hidden="true"><span>Docker</span><span>Bash</span></p>
+          <p class="card-links">
+            <a href="#" aria-label="Open live demo placeholder">Live</a>
+            <a href="#" aria-label="View repo placeholder">Repo</a>
+          </p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="yearProjects"></span> Your Name. <a href="#" aria-label="GitHub placeholder">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
