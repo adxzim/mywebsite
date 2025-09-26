@@ -1,532 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+<!-- index.html -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adzim's Website | Technical Support Engineer</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-    <style>
-        html {
-            overflow-x: hidden;
-        }
-        body {
-            overflow-x: hidden;
-            width: 100%;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f8fafc;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #6366f1;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #4f46e5;
-        }
-
-        #scrollToTopBtn {
-            transition: all 0.3s ease;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .skill-pill:hover {
-            background-color: #4f46e5;
-            color: white;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Your Name — Homelab projects portfolio. Minimal, static site showcasing IT projects." />
+  <title>Your Name — Homelab Projects</title>
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="font-sans antialiased text-gray-800 overflow-x-hidden">
-    <!-- Animated Background -->
-    <div id="vanta-bg" class="fixed top-0 left-0 w-full h-full -z-10"></div>
-    
-    <!-- Navigation -->
-    <nav class="backdrop-blur-md bg-white/80 fixed w-full z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-xl font-bold text-indigo-600">IT Portfolio</span>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-indigo-600 transition">Home</a>
-                    <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition">Projects</a>
-                    <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition">Skills</a>
-                    <a href="#about" class="text-gray-700 hover:text-indigo-600 transition">About</a>
-                    <a href="#contact" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="menu-btn" class="text-gray-700">
-                        <i data-feather="menu"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-40 pt-16">
-        <div class="flex flex-col items-center space-y-8 py-8">
-            <a href="#home" class="text-gray-700 hover:text-indigo-600 text-lg">Home</a>
-            <a href="#projects" class="text-gray-700 hover:text-indigo-600 text-lg">Projects</a>
-            <a href="#skills" class="text-gray-700 hover:text-indigo-600 text-lg">Skills</a>
-            <a href="#about" class="text-gray-700 hover:text-indigo-600 text-lg">About</a>
-            <a href="#contact" class="bg-indigo-600 text-white px-6 py-2 rounded-md hover:bg-indigo-700 text-lg">Contact</a>
-        </div>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="logo" aria-hidden="false">
+        <a href="index.html">Your<span class="logo-accent">Name</span></a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">
+        ☰
+      </button>
+
+      <nav id="siteNav" class="site-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Hi, I'm <span class="text-indigo-600">Adzim</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-6">Technical Support Engineer</h2>
-                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
-                        I build exceptional digital experiences with modern technologies. 
-                        Passionate about creating efficient, scalable solutions that solve real-world problems.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#projects" class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition flex items-center">
-                            View Work <i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
-                        </a>
-                        <a href="#contact" class="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-md hover:bg-indigo-50 transition flex items-center">
-                            Contact Me <i data-feather="mail" class="ml-2 w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
-                <div data-aos="fade-left" class="flex justify-center">
-                    <div class="relative">
-                        <div class="absolute -inset-4 bg-indigo-100 rounded-full blur-md opacity-75"></div>
-                        <img src="http://static.photos/technology/640x360/42" alt="Developer" class="relative rounded-full w-64 h-64 object-cover border-4 border-white shadow-xl">
-                    </div>
-                </div>
-            </div>
-        </div>
+  <main id="main" class="container" role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Minimal Homelab Projects</h1>
+      <p class="lede">A concise portfolio of homelab and IT projects — automation, self-hosting, monitoring, and tooling. Placeholder content — replace with your summaries and links.</p>
+      <p class="cta-row">
+        <a class="btn" href="projects.html">View Projects</a>
+        <a class="btn ghost" href="about.html">About</a>
+      </p>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white/80 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">My Projects</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Here are some of my recent projects showcasing my skills and expertise.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300" data-aos="fade-up">
-                    <img src="http://static.photos/technology/1024x576/1" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">E-Commerce Platform</h3>
-                        <p class="text-gray-600 mb-4">A full-featured online store with payment integration and inventory management.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">React</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Node.js</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">MongoDB</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center">
-                            View Project <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <img src="http://static.photos/technology/1024x576/2" alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Task Management App</h3>
-                        <p class="text-gray-600 mb-4">A productivity application for teams to collaborate and manage projects efficiently.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Vue.js</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Firebase</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Tailwind CSS</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center">
-                            View Project <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Project 3 -->
-                <div class="project-card bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <img src="http://static.photos/technology/1024x576/3" alt="Project 3" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">AI Chatbot</h3>
-                        <p class="text-gray-600 mb-4">An intelligent chatbot powered by natural language processing for customer support.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Python</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">TensorFlow</span>
-                            <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">Flask</span>
-                        </div>
-                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center">
-                            View Project <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12" data-aos="fade-up">
-                <a href="#" class="inline-flex items-center px-6 py-3 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition">
-                    View All Projects <i data-feather="chevron-right" class="ml-2 w-5 h-5"></i>
-                </a>
-            </div>
-        </div>
+    <section class="featured" aria-labelledby="featured-title">
+      <h2 id="featured-title">Featured Projects</h2>
+      <div class="grid">
+        <article class="card" tabindex="0" aria-labelledby="p1-title">
+          <div class="thumb" aria-hidden="true">
+            <!-- inline SVG placeholder -->
+            <svg width="100%" height="100%" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Project thumbnail placeholder">
+              <rect width="100%" height="100%" rx="8" fill="none" stroke="currentColor" stroke-opacity="0.1"></rect>
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="18">SVG Thumb</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 id="p1-title">Project 1 — Short description</h3>
+            <p class="muted">Self-hosted monitoring stack for homelab metrics and alerts.</p>
+            <p class="tags" aria-hidden="true"><span>Prometheus</span><span>Grafana</span><span>Docker</span></p>
+            <p class="card-links">
+              <a href="#" aria-label="Open live demo (placeholder)">Live</a>
+              <a href="#" aria-label="View repo (placeholder)">Repo</a>
+            </p>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" aria-labelledby="p2-title">
+          <div class="thumb" aria-hidden="true">
+            <svg width="100%" height="100%" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Project thumbnail placeholder">
+              <rect width="100%" height="100%" rx="8" fill="none" stroke="currentColor" stroke-opacity="0.1"></rect>
+              <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="18">SVG Thumb</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <h3 id="p2-title">Project 2 — Short description</h3>
+            <p class="muted">Configuration-as-code for automated VM builds and backup jobs.</p>
+            <p class="tags" aria-hidden="true"><span>Ansible</span><span>QEMU</span><span>Bash</span></p>
+            <p class="card-links">
+              <a href="#" aria-label="Open live demo (placeholder)">Live</a>
+              <a href="#" aria-label="View repo (placeholder)">Repo</a>
+            </p>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Technical Skills</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    I've worked with a variety of technologies in the web development world.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Frontend Skills -->
-                <div class="bg-white rounded-xl shadow-md p-6" data-aos="fade-up">
-                    <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-indigo-100 text-indigo-600 mr-4">
-                            <i data-feather="layout" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">Frontend</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">React</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Vue.js</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Angular</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">HTML5</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">CSS3</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Tailwind</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">JavaScript</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">TypeScript</span>
-                    </div>
-                </div>
-                
-                <!-- Backend Skills -->
-                <div class="bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-indigo-100 text-indigo-600 mr-4">
-                            <i data-feather="server" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">Backend</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Node.js</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Express</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Python</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Django</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Flask</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">PHP</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Laravel</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">REST APIs</span>
-                    </div>
-                </div>
-                
-                <!-- Database Skills -->
-                <div class="bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-indigo-100 text-indigo-600 mr-4">
-                            <i data-feather="database" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">Database</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">MongoDB</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">MySQL</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">PostgreSQL</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Firebase</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Redis</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">GraphQL</span>
-                    </div>
-                </div>
-                
-                <!-- DevOps Skills -->
-                <div class="bg-white rounded-xl shadow-md p-6" data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center mb-4">
-                        <div class="p-3 rounded-lg bg-indigo-100 text-indigo-600 mr-4">
-                            <i data-feather="cloud" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900">DevOps</h3>
-                    </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Docker</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Kubernetes</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">AWS</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Azure</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">CI/CD</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Git</span>
-                        <span class="skill-pill bg-gray-100 text-gray-800 px-3 py-1 rounded-full transition">Linux</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="quick-contact" aria-labelledby="quick-contact-title">
+      <h2 id="quick-contact-title">Get in touch</h2>
+      <p>Questions, collaboration, or access to docs — <a href="contact.html">contact me</a>.</p>
     </section>
+  </main>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white/80 backdrop-blur-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">About Me</h2>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        I'm a passionate full-stack developer with over 5 years of experience building web applications and digital solutions. 
-                        My journey in technology began when I built my first website at 15, and I've been hooked ever since.
-                    </p>
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        I specialize in creating responsive, user-friendly applications with clean, efficient code. 
-                        My approach combines technical expertise with creative problem-solving to deliver exceptional results.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition flex items-center">
-                            Download CV <i data-feather="download" class="ml-2 w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
-                <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
-                    <div class="bg-indigo-100 p-6 rounded-xl">
-                        <div class="text-indigo-600 mb-3">
-                            <i data-feather="award" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">2+ Years</h3>
-                        <p class="text-gray-600">Experience</p>
-                    </div>
-                    <div class="bg-indigo-100 p-6 rounded-xl">
-                        <div class="text-indigo-600 mb-3">
-                            <i data-feather="briefcase" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">50+ Projects</h3>
-                        <p class="text-gray-600">Completed</p>
-                    </div>
-                    <div class="bg-indigo-100 p-6 rounded-xl">
-                        <div class="text-indigo-600 mb-3">
-                            <i data-feather="users" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">30+ Clients</h3>
-                        <p class="text-gray-600">Worldwide</p>
-                    </div>
-                    <div class="bg-indigo-100 p-6 rounded-xl">
-                        <div class="text-indigo-600 mb-3">
-                            <i data-feather="globe" class="w-8 h-8"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">10+ Countries</h3>
-                        <p class="text-gray-600">Served</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Your Name. <a href="#" aria-label="GitHub placeholder link">GitHub</a></p>
+    </div>
+  </footer>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4" data-aos="fade-up">Get In Touch</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div data-aos="fade-right">
-                    <form class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your name">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="your@email.com">
-                        </div>
-                        <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                            <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Subject">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                            <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="Your message"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-md hover:bg-indigo-700 transition">
-                                Send Message <i data-feather="send" class="ml-2 w-5 h-5 inline"></i>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                
-                <div data-aos="fade-left" class="space-y-8">
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 p-3 bg-indigo-100 text-indigo-600 rounded-lg mr-4">
-                            <i data-feather="mail" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-1">Email</h3>
-                            <p class="text-gray-600">contact@yourportfolio.com</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 p-3 bg-indigo-100 text-indigo-600 rounded-lg mr-4">
-                            <i data-feather="phone" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-1">Phone</h3>
-                            <p class="text-gray-600">+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="flex-shrink-0 p-3 bg-indigo-100 text-indigo-600 rounded-lg mr-4">
-                            <i data-feather="map-pin" class="w-6 h-6"></i>
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-1">Location</h3>
-                            <p class="text-gray-600">San Francisco, CA</p>
-                        </div>
-                    </div>
-                    <div class="pt-4">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Connect With Me</h3>
-                        <div class="flex space-x-4">
-                            <a href="#" class="p-3 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                <i data-feather="github" class="w-5 h-5"></i>
-                            </a>
-                            <a href="#" class="p-3 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                <i data-feather="linkedin" class="w-5 h-5"></i>
-                            </a>
-                            <a href="#" class="p-3 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                <i data-feather="twitter" class="w-5 h-5"></i>
-                            </a>
-                            <a href="#" class="p-3 bg-gray-100 text-gray-700 rounded-full hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                <i data-feather="instagram" class="w-5 h-5"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" class="fixed bottom-8 right-8 bg-indigo-600 text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition transform scale-0">
-        <i data-feather="arrow-up" class="w-6 h-6"></i>
-    </button>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="md:col-span-1">
-                    <h3 class="text-xl font-bold mb-4">IT Portfolio</h3>
-                    <p class="text-gray-400">
-                        Creating innovative digital solutions that drive business growth and enhance user experiences.
-                    </p>
-                </div>
-                <div class="md:col-span-1">
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
-                        <li><a href="#projects" class="text-gray-400 hover:text-white transition">Projects</a></li>
-                        <li><a href="#skills" class="text-gray-400 hover:text-white transition">Skills</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="md:col-span-1">
-                    <h3 class="text-lg font-semibold mb-4">Connect</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="p-3 bg-gray-800 text-gray-300 rounded-full hover:bg-indigo-600 hover:text-white transition">
-                            <i data-feather="github" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="p-3 bg-gray-800 text-gray-300 rounded-full hover:bg-indigo-600 hover:text-white transition">
-                            <i data-feather="linkedin" class="w-5 h-5"></i>
-                        </a>
-                        <a href="#" class="p-3 bg-gray-800 text-gray-300 rounded-full hover:bg-indigo-600 hover:text-white transition">
-                            <i data-feather="twitter" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-gray-400 text-sm">© 2025 | adzim</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize animations
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Initialize Vanta.js background
-        VANTA.NET({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x6366f1,
-            backgroundColor: 0xf8fafc,
-            points: 12.00,
-            maxDistance: 22.00,
-            spacing: 18.00
-        });
-        
-        // Mobile menu toggle
-        document.getElementById('menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-        
-        // Replace feather icons
-        feather.replace();
-
-        // Scroll to top button
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.remove('scale-0');
-                scrollToTopBtn.classList.add('scale-100');
-            } else {
-                scrollToTopBtn.classList.remove('scale-100');
-                scrollToTopBtn.classList.add('scale-0');
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
