@@ -1,40 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Minimalist personal homelab IT projects portfolio">
-  <title>Adzim's Homelab Project</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/main.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT & Systems Architecture Portfolio</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg: #DDF2FA; /* Ice Blue */
+            --blue: #0055B3; /* Royal Blue */
+            --red: #D30C1C; /* Accent Red */
+            --border: rgba(0, 85, 179, 0.2);
+            
+            --font-display: 'Bricolage Grotesque', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            
+            --transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--blue);
+            font-family: var(--font-display);
+            line-height: 1.2;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* --- Header & Nav --- */
+        nav {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .brand {
+            text-decoration: none;
+            color: var(--blue);
+        }
+
+        .brand h2 {
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .brand span {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-top: 4px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* --- ANIMATED BUTTON STYLE --- */
+        .btn {
+            position: relative;
+            padding: 10px 24px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            background: var(--blue);
+            color: white;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Bubble Pseudo-elements */
+        .btn:before,
+        .btn:after {
+            position: absolute;
+            content: "";
+            width: 140%;
+            left: 50%;
+            height: 100%;
+            transform: translateX(-50%);
+            z-index: -1;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .btn:hover:before {
+            top: -70%;
+            background-image: radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, transparent 20%, var(--red) 20%, transparent 30%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, transparent 10%, var(--red) 15%, transparent 20%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, var(--red) 20%, transparent 20%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, var(--red) 20%, transparent 20%);
+            background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+            background-position: 50% 120%;
+            animation: topBubbles 0.6s ease;
+        }
+
+        .btn:hover::after {
+            bottom: -70%;
+            background-image: radial-gradient(circle, var(--red) 20%, transparent 20%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, transparent 10%, var(--red) 15%, transparent 20%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, var(--red) 20%, transparent 20%),
+                radial-gradient(circle, var(--blue) 20%, transparent 20%),
+                radial-gradient(circle, var(--red) 20%, transparent 20%);
+            background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+            background-position: 50% 0%;
+            animation: bottomBubbles 0.6s ease;
+        }
+
+        @keyframes topBubbles {
+            0% {
+                background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+            }
+            50% {
+                background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+            }
+            100% {
+                background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        @keyframes bottomBubbles {
+            0% {
+                background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+            }
+            50% {
+                background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+            }
+            100% {
+                background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+                background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+        }
+
+        .btn:hover { 
+            background: var(--red);
+        }
+
+        /* --- Hero --- */
+        .hero {
+            padding: 80px 0 140px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 9vw, 8rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 0.85;
+            margin-bottom: 60px;
+        }
+
+        .hero-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            text-align: left;
+            align-items: center;
+        }
+
+        .hero-image svg {
+            width: 100%;
+            max-width: 300px;
+            fill: var(--blue);
+        }
+
+        .hero-text {
+            font-size: 1.15rem;
+            line-height: 1.4;
+            max-width: 480px;
+        }
+
+        /* --- Menu Style Project Grid --- */
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .menu-grid {
+            border-top: 2px solid var(--blue);
+            margin-bottom: 120px;
+        }
+
+        .menu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--blue);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .menu-row:hover {
+            background: rgba(0, 85, 179, 0.05);
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .menu-label {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .menu-price {
+            font-family: var(--font-mono);
+            font-weight: 500;
+        }
+
+        .menu-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted var(--border);
+            margin: 0 15px;
+            position: relative;
+            top: -5px;
+        }
+
+        /* --- Illustration Assets --- */
+        .octopus-break {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: -60px;
+        }
+
+        .octopus-break svg {
+            width: 400px;
+            opacity: 0.8;
+            fill: var(--blue);
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 2px solid var(--blue);
+            padding: 60px 0 100px;
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            align-items: flex-start;
+        }
+
+        /* --- Custom Back To Top Button --- */
+        .back-to-top-btn {
+            width: 140px;
+            height: 56px;
+            overflow: hidden;
+            border: none;
+            color: var(--blue);
+            background: none;
+            position: relative;
+            padding-bottom: 2em;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-top-btn:hover {
+            color: var(--red);
+        }
+
+        .back-to-top-btn > div,
+        .back-to-top-btn > svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .back-to-top-btn:before {
+            content: "";
+            position: absolute;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            background: currentColor;
+            transition: transform 0.25s ease-out;
+        }
+
+        .back-to-top-btn:hover:before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .back-to-top-btn .clone > *,
+        .back-to-top-btn .text > * {
+            opacity: 1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: 0.2s;
+            margin-left: 4px;
+        }
+
+        .back-to-top-btn .clone > * {
+            transform: translateY(60px);
+        }
+
+        .back-to-top-btn:hover .clone > * {
+            opacity: 1;
+            transform: translateY(0px);
+            transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+        }
+
+        .back-to-top-btn:hover .text > * {
+            opacity: 1;
+            transform: translateY(-60px);
+            transition: all 0.2s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+        }
+
+        .back-to-top-btn svg {
+            width: 18px;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%) rotate(-50deg);
+            transition: 0.2s ease-out;
+        }
+
+        .back-to-top-btn:hover svg {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+
+        @media (max-width: 768px) {
+            .hero-columns { grid-template-columns: 1fr; }
+            h1 { font-size: 4rem; }
+            .section-title { font-size: 2.5rem; }
+            .menu-label { font-size: 1.25rem; }
+            footer { flex-direction: column; gap: 40px; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <a href="../" class="logo">
-  <img src="../logo.png" alt="Adzim" class="logo-img">
-</a>
-    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-    <nav class="nav" aria-label="Main Navigation">
-      <a href="./">Home</a>
-      <a href="./projects/">Projects</a>
-      <a href="./about/">About</a>
-      <a href="./contact/">Contact</a>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h1>Welcome to My Homelab Portfolio</h1>
-      <p>Brief introduction about your homelab, IT projects, and personal experiments. Replace this placeholder with your own content.</p>
-    </section>
-  </main>
+    <div class="container">
+        <nav id="top">
+            <a href="#" class="brand">
+                <h2>DEV / SYSTEMS</h2>
+                <span>EST. 2026 — IT & SOFTWARE ARCHITECTURE</span>
+            </a>
+            <div class="nav-buttons">
+                <a href="#top" class="btn">Home</a>
+                <a href="#skills" class="btn">Skills</a>
+                <a href="#projects" class="btn">Projects</a>
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+        </nav>
 
-  <footer>
-    <p>&copy; 2025 Adzim <a href="https://github.com/adxzim">GitHub</a></p>
-  </footer>
+        <section class="hero">
+            <h1>Architecting high-availability infrastructure, web systems, & digital pipelines.</h1>
+            
+            <div class="hero-columns">
+                <div class="hero-image">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M40,100 Q40,40 100,40 Q160,40 160,100 Q160,160 100,160 Q40,160 40,100 M100,60 A40,40 0 1,0 100,140 A40,40 0 1,0 100,60" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <text x="68" y="104" font-family="monospace" font-size="9" fill="currentColor">[SYS.CORE]</text>
+                        <text x="68" y="116" font-family="monospace" font-size="8" fill="currentColor">[v2026.0]</text>
+                        <path d="M160,100 L190,80 L190,120 Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <div class="hero-text">
+                    Specializing in modern cloud engineering, automated CI/CD pipelines, full-stack web applications, and cyber resilience. Dedicated to building performant, scalable, and secure IT infrastructure for modern enterprise demands.
+                </div>
+            </div>
+        </section>
+
+        <div class="octopus-break">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="80" r="30" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M70,85 Q40,100 20,150 M130,85 Q160,100 180,150 M100,110 Q100,160 120,190 M100,110 Q100,160 80,190" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </div>
+
+        <section id="skills">
+            <div class="section-title">
+                <span>Technical Stack</span>
+                <a href="#contact" class="btn" style="font-size: 0.65rem; padding: 6px 18px; text-transform: uppercase;">Get In Touch</a>
+            </div>
+            
+            <div class="menu-grid">
+                <a href="#skills" class="menu-row">
+                    <span class="menu-label">Cloud & DevOps</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">AWS / K8S / TERRAFORM</span>
+                </a>
+                <a href="#skills" class="menu-row">
+                    <span class="menu-label">Full-Stack Development</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">REACT / NODE.JS / TS</span>
+                </a>
+                <a href="#skills" class="menu-row">
+                    <span class="menu-label">Database Architecture</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">POSTGRES / REDIS / MONGO</span>
+                </a>
+                <a href="#skills" class="menu-row">
+                    <span class="menu-label">Cybersecurity & Zero-Trust</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">IAM / OAUTH2 / CERT</span>
+                </a>
+                <a href="#skills" class="menu-row">
+                    <span class="menu-label">Network & Observability</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">DOCKER / ISTIO / PROMETHEUS</span>
+                </a>
+                <a href="#skills" class="menu-row">
+                    <span class="menu-label">CI/CD & Automation</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">GITHUB ACTIONS / JENKINS</span>
+                </a>
+            </div>
+
+            <div id="projects" class="section-title">
+                <span>Services & Solutions</span>
+            </div>
+            <div class="menu-grid">
+                <a href="#projects" class="menu-row">
+                    <span class="menu-label">Cloud Infrastructure Migration</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">ENTERPRISE</span>
+                </a>
+                <a href="#projects" class="menu-row">
+                    <span class="menu-label">Custom Web & Mobile Apps</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">FULL-STACK</span>
+                </a>
+                <a href="#projects" class="menu-row">
+                    <span class="menu-label">Security Audit & Compliance</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">VULN / AUDIT</span>
+                </a>
+                <a href="#projects" class="menu-row">
+                    <span class="menu-label">API & System Integration</span>
+                    <span class="menu-dots"></span>
+                    <span class="menu-price">REST / GRAPHQL</span>
+                </a>
+            </div>
+        </section>
+
+        <footer id="contact">
+            <div style="max-width: 340px;">
+                <div style="margin-bottom: 8px; font-weight: 700;">© 2026 DEV / IT SYSTEMS PORTFOLIO</div>
+                <div style="opacity: 0.8; margin-bottom: 4px;">KUALA LUMPUR / REMOTE AVAILABLE</div>
+                <div style="opacity: 0.8; color: var(--red);">DEV.PORTFOLIO@EXAMPLE.COM</div>
+            </div>
+
+            <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="text">
+                    <span>Back</span>
+                    <span>to</span>
+                    <span>top</span>
+                </div>
+                <div class="clone">
+                    <span>Back</span>
+                    <span>to</span>
+                    <span>top</span>
+                </div>
+                <svg
+                    stroke-width="2"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                    ></path>
+                </svg>
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
-
-
-
