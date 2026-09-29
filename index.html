@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT & Systems Architecture Portfolio</title>
+    <title>IT & POS Infrastructure Portfolio</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -82,6 +82,7 @@
         .nav-buttons {
             display: flex;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
         /* --- ANIMATED BUTTON STYLE --- */
@@ -181,16 +182,16 @@
 
         /* --- Hero --- */
         .hero {
-            padding: 80px 0 140px;
+            padding: 80px 0 100px;
             text-align: center;
         }
 
         h1 {
-            font-size: clamp(3rem, 9vw, 8rem);
+            font-size: clamp(2.8rem, 8vw, 6.5rem);
             font-weight: 800;
             letter-spacing: -0.05em;
-            line-height: 0.85;
-            margin-bottom: 60px;
+            line-height: 0.9;
+            margin-bottom: 50px;
         }
 
         .hero-columns {
@@ -209,30 +210,39 @@
 
         .hero-text {
             font-size: 1.15rem;
-            line-height: 1.4;
-            max-width: 480px;
+            line-height: 1.45;
+            max-width: 520px;
         }
 
-        /* --- Menu Style Project Grid --- */
+        /* --- Menu Style Grid --- */
         .section-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -0.04em;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
         }
 
+        .section-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--red);
+            margin-bottom: 12px;
+            display: block;
+        }
+
         .menu-grid {
             border-top: 2px solid var(--blue);
-            margin-bottom: 120px;
+            margin-bottom: 100px;
         }
 
         .menu-row {
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+            flex-direction: column;
             padding: 24px 0;
             border-bottom: 1px solid var(--border);
             text-decoration: none;
@@ -242,20 +252,33 @@
         }
 
         .menu-row:hover {
-            background: rgba(0, 85, 179, 0.05);
-            padding-left: 10px;
-            padding-right: 10px;
+            background: rgba(0, 85, 179, 0.04);
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .menu-row-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 100%;
+            gap: 16px;
         }
 
         .menu-label {
-            font-size: 1.75rem;
+            font-size: 1.65rem;
             font-weight: 700;
             letter-spacing: -0.02em;
         }
 
         .menu-price {
             font-family: var(--font-mono);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--red);
+            text-transform: uppercase;
+            text-align: right;
+            white-space: nowrap;
         }
 
         .menu-dots {
@@ -266,15 +289,88 @@
             top: -5px;
         }
 
+        .menu-impact {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-top: 10px;
+            color: var(--blue);
+            opacity: 0.92;
+            font-family: var(--font-display);
+        }
+
+        .menu-impact ul {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .menu-impact ul li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .menu-impact ul li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: var(--red);
+            font-size: 0.8rem;
+        }
+
+        .menu-impact strong {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--blue);
+            margin-right: 6px;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            background: rgba(0, 85, 179, 0.08);
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        /* --- Recommendations Box --- */
+        .recom-card {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .recom-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* --- Illustration Assets --- */
         .octopus-break {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: -60px;
+            margin-bottom: -40px;
         }
 
         .octopus-break svg {
-            width: 400px;
+            width: 320px;
             opacity: 0.8;
             fill: var(--blue);
         }
@@ -376,10 +472,13 @@
 
         @media (max-width: 768px) {
             .hero-columns { grid-template-columns: 1fr; }
-            h1 { font-size: 4rem; }
-            .section-title { font-size: 2.5rem; }
+            h1 { font-size: 3.5rem; }
+            .section-title { font-size: 2.2rem; flex-direction: column; align-items: flex-start; gap: 12px; }
             .menu-label { font-size: 1.25rem; }
+            .menu-row-header { flex-direction: column; gap: 4px; }
+            .menu-dots { display: none; }
             footer { flex-direction: column; gap: 40px; }
+            .container { padding: 0 20px; }
         }
     </style>
 </head>
@@ -388,31 +487,32 @@
     <div class="container">
         <nav id="top">
             <a href="#" class="brand">
-                <h2>DEV / SYSTEMS</h2>
-                <span>EST. 2026 — IT & SOFTWARE ARCHITECTURE</span>
+                <h2>ADZIM'S &nbsp; PORTFOLIO</h2>
+                <span>IT SUPPORT & POS ONBOARDING SPECIALIST</span>
             </a>
             <div class="nav-buttons">
                 <a href="#top" class="btn">Home</a>
+                <a href="#experience" class="btn">Experience</a>
+                <a href="#certifications" class="btn">Certifications</a>
                 <a href="#skills" class="btn">Skills</a>
-                <a href="#projects" class="btn">Projects</a>
                 <a href="#contact" class="btn">Contact</a>
             </div>
         </nav>
 
         <section class="hero">
-            <h1>Architecting high-availability infrastructure, web systems, & digital pipelines.</h1>
+            <h1>POS Platforms.  Tech Ops. Enterprise Readiness.</h1>
             
             <div class="hero-columns">
                 <div class="hero-image">
                     <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                         <path d="M40,100 Q40,40 100,40 Q160,40 160,100 Q160,160 100,160 Q40,160 40,100 M100,60 A40,40 0 1,0 100,140 A40,40 0 1,0 100,60" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <text x="68" y="104" font-family="monospace" font-size="9" fill="currentColor">[SYS.CORE]</text>
-                        <text x="68" y="116" font-family="monospace" font-size="8" fill="currentColor">[v2026.0]</text>
+                        <text x="100" y="97" text-anchor="middle" font-family="monospace" font-size="7.5" fill="currentColor">[   FOCUS  ]</text>
+                        <!--<text x="100" y="111" text-anchor="middle" font-family="monospace" font-size="6.5" fill="currentColor">[ REMOTE  ONBOARD ]</text>-->
                         <path d="M160,100 L190,80 L190,120 Z" fill="currentColor"/>
                     </svg>
                 </div>
                 <div class="hero-text">
-                    Specializing in modern cloud engineering, automated CI/CD pipelines, full-stack web applications, and cyber resilience. Dedicated to building performant, scalable, and secure IT infrastructure for modern enterprise demands.
+                    Technical Support Specialist with hands-on experience deploying multi-vendor Xilnex POS infrastructure at KLIA, onboarding Australian F&B brands, remote network printer troubleshooting, and end-to-end IT hardware asset provisioning.
                 </div>
             </div>
         </section>
@@ -424,77 +524,180 @@
             </svg>
         </div>
 
-        <section id="skills">
+        <section id="experience">
+            <span class="section-subtitle">Track Record</span>
             <div class="section-title">
-                <span>Technical Stack</span>
-                <a href="#contact" class="btn" style="font-size: 0.65rem; padding: 6px 18px; text-transform: uppercase;">Get In Touch</a>
+                <span>Work Experience</span>
+                <a href="#contact" class="btn" style="font-size: 0.65rem; padding: 6px 18px; text-transform: uppercase;">Get &ensp; In &ensp;Touch</a>
             </div>
             
             <div class="menu-grid">
-                <a href="#skills" class="menu-row">
-                    <span class="menu-label">Cloud & DevOps</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">AWS / K8S / TERRAFORM</span>
-                </a>
-                <a href="#skills" class="menu-row">
-                    <span class="menu-label">Full-Stack Development</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">REACT / NODE.JS / TS</span>
-                </a>
-                <a href="#skills" class="menu-row">
-                    <span class="menu-label">Database Architecture</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">POSTGRES / REDIS / MONGO</span>
-                </a>
-                <a href="#skills" class="menu-row">
-                    <span class="menu-label">Cybersecurity & Zero-Trust</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">IAM / OAUTH2 / CERT</span>
-                </a>
-                <a href="#skills" class="menu-row">
-                    <span class="menu-label">Network & Observability</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">DOCKER / ISTIO / PROMETHEUS</span>
-                </a>
-                <a href="#skills" class="menu-row">
-                    <span class="menu-label">CI/CD & Automation</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">GITHUB ACTIONS / JENKINS</span>
-                </a>
-            </div>
+                <!-- Onboarding Specialist -->
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">Onboarding Specialist</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">AUSTRALIAN F&B CLIENTS / REMOTE</span>
+                    </div>
+                    <div class="menu-impact">
+                        <ul>
+                            <li><strong>Go-Live Readiness:</strong> Successfully onboarded Australian restaurant clients onto cloud-connected POS platforms, configuring accounts, system parameters, and tax/till structures.</li>
+                            <li><strong>Digital Menu Engineering:</strong> Designed and programmed structured digital menus, verifying accurate item categorization, modifiers, pricing tiers, and visual layout consistency.</li>
+                            <li><strong>Network & Peripheral Integration:</strong> Remotely configured and diagnosed POS thermal receipt printers and hardware peripherals, resolving subnet and IP compatibility issues.</li>
+                            <li><strong>L2 Remote Troubleshooting:</strong> Delivered live remote support for POS application software and hardware, reducing store go-live friction and downtime.</li>
+                            <li><strong>System Documentation:</strong> Maintained comprehensive knowledge base articles, customer profiles, and network configurations in enterprise CRM software.</li>
+                        </ul>
+                        <div class="tag-list">
+                            <span class="tag">POS Configuration</span>
+                            <span class="tag">Thermal Printer LAN/IP</span>
+                            <span class="tag">Remote Desk (AnyDesk/TeamViewer)</span>
+                            <span class="tag">Digital Menus</span>
+                            <span class="tag">CRM Management</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="projects" class="section-title">
-                <span>Services & Solutions</span>
-            </div>
-            <div class="menu-grid">
-                <a href="#projects" class="menu-row">
-                    <span class="menu-label">Cloud Infrastructure Migration</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">ENTERPRISE</span>
-                </a>
-                <a href="#projects" class="menu-row">
-                    <span class="menu-label">Custom Web & Mobile Apps</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">FULL-STACK</span>
-                </a>
-                <a href="#projects" class="menu-row">
-                    <span class="menu-label">Security Audit & Compliance</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">VULN / AUDIT</span>
-                </a>
-                <a href="#projects" class="menu-row">
-                    <span class="menu-label">API & System Integration</span>
-                    <span class="menu-dots"></span>
-                    <span class="menu-price">REST / GRAPHQL</span>
-                </a>
+                <!-- Technical Support Engineer -->
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">Technical Support Engineer</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">KLIA AIRPORT OUTLETS / XILNEX POS</span>
+                    </div>
+                    <div class="menu-impact">
+                        <ul>
+                            <li><strong>High-Density Terminal Deployment:</strong> Installed and configured Xilnex POS hardware & software across retail and F&B tenants in KLIA, facilitating seamless multi-vendor operations.</li>
+                            <li><strong>New Outlet Rollout:</strong> Executed end-to-end setup for new airport store openings, including hardware bench testing, network connection checks, and initial store staff training.</li>
+                            <li><strong>SLA & Incident Response:</strong> Triaged and resolved hardware, software, and local network tickets under strict SLA guidelines in high-pressure airport environment.</li>
+                            <li><strong>Asset & Setup Audit:</strong> Authored detailed documentation for terminal POS setups, cabling diagrams, peripheral maps, and maintenance history logs.</li>
+                        </ul>
+                        <div class="tag-list">
+                            <span class="tag">Xilnex POS</span>
+                            <span class="tag">KLIA Retail Operations</span>
+                            <span class="tag">SLA Incident Response</span>
+                            <span class="tag">Hardware Bench Testing</span>
+                            <span class="tag">On-Site User Training</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <section id="certifications">
+            <span class="section-subtitle">Verified Qualifications</span>
+            <div class="section-title">
+                <span>Certifications & Credentials</span>
+            </div>
+            
+            <div class="menu-grid">
+                <!-- CCNA: Introduction to Networks -->
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">CCNA: Introduction to Networks</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">CISCO CERTIFIED</span>
+                    </div>
+                    <div class="menu-impact">
+                        <ul>
+                            <li><strong>Networking Fundamentals & Protocols:</strong> Demonstrated knowledge of networking models, IP addressing (IPv4/IPv6), subnetting, and how physical and data link protocols support Ethernet infrastructure.</li>
+                            <li><strong>Switch & Router Configuration:</strong> Configured and verified connectivity between switches, routers, and end devices to provide seamless access to local and remote network resources.</li>
+                            <li><strong>Practical Hands-On Experience:</strong> Accumulated up to 14 hours of intensive hands-on lab work and completed up to 54 practical lab exercises using Cisco hardware and Cisco Packet Tracer.</li>
+                        </ul>
+                        <div class="tag-list">
+                            <span class="tag">Cisco Packet Tracer</span>
+                            <span class="tag">IP Addressing & Subnetting</span>
+                            <span class="tag">Switch & Router Config</span>
+                            <span class="tag">Ethernet Protocols</span>
+                            <span class="tag">54 Practical Labs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google IT Support Professional Certificate (v2) -->
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">Google IT Support Professional Certificate (v2)</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">GOOGLE / COURSERA</span>
+                    </div>
+                    <div class="menu-impact">
+                        <ul>
+                            <li><strong>Foundational IT Service Competence:</strong> Demonstrated mastery in foundational IT service desk operations, technical troubleshooting methodologies, and customer support excellence.</li>
+                            <li><strong>Multi-Domain Proficiency:</strong> Developed hands-on proficiency across system administration, operating systems (Windows & Linux), computer networking, and cybersecurity fundamentals.</li>
+                            <li><strong>Applied Diagnostics:</strong> Completed practical scenarios and lab assessments focused on resolving real-world hardware, software, and OS issues to minimize user downtime.</li>
+                        </ul>
+                        <div class="tag-list">
+                            <span class="tag">System Administration</span>
+                            <span class="tag">IT Troubleshooting</span>
+                            <span class="tag">Operating Systems (Win/Linux)</span>
+                            <span class="tag">Network & IT Security</span>
+                            <span class="tag">Customer Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <span class="section-subtitle">Competencies</span>
+            <div class="section-title">
+                <span>Core Skill Matrix</span>
+            </div>
+            
+            <div class="menu-grid">
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">POS Platforms & Peripherals</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">XILNEX / THERMAL PRINTERS / POS / CASH DRAWERS</span>
+                    </div>
+                    <div class="menu-impact">
+                        Deep expertise in point-of-sale software, hardware peripherals, barcode scanners, thermal receipt setup, and store backend workflows.
+                    </div>
+                </div>
+
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">Network & Hardware Troubleshooting</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">IP/SUBNETTING / ETHERNET / ROUTERS / WI-FI</span>
+                    </div>
+                    <div class="menu-impact">
+                        Diagnosing local IP conflicts, network printer connectivity, router configuration, terminal offline modes, and multi-vendor setup at airport retail nodes.
+                    </div>
+                </div>
+
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">IT Asset Management & Deployment</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">INVENTORY / BATCH IMAGING / DECOMMISSIONING</span>
+                    </div>
+                    <div class="menu-impact">
+                        Full hardware lifecycle execution: cataloging hardware specs, automated deployment images, hardware health checks, and secure decommissioning.
+                    </div>
+                </div>
+
+                <div class="menu-row">
+                    <div class="menu-row-header">
+                        <span class="menu-label">Client Technical Enablement</span>
+                        <span class="menu-dots"></span>
+                        <span class="menu-price">REMOTE SUPPORT / CRM / USER TRAINING / SLAs</span>
+                    </div>
+                    <div class="menu-impact">
+                        Delivering cross-border support (Australia/Malaysia), managing high SLA pressure, and translating complex technical setups for non-technical retail managers.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
         <footer id="contact">
-            <div style="max-width: 340px;">
-                <div style="margin-bottom: 8px; font-weight: 700;">© 2026 DEV / IT SYSTEMS PORTFOLIO</div>
-                <div style="opacity: 0.8; margin-bottom: 4px;">KUALA LUMPUR / REMOTE AVAILABLE</div>
-                <div style="opacity: 0.8; color: var(--red);">DEV.PORTFOLIO@EXAMPLE.COM</div>
+            <div style="max-width: 360px;">
+                <div style="margin-bottom: 8px; font-weight: 700;">© 2026 IT PORTFOLIO</div>
+                <div style="opacity: 0.8; margin-bottom: 4px;">KUALA LUMPUR</div>
+                <div style="opacity: 0.8; color: var(--red);">MADZIM99@GMAIL.COM</div>
             </div>
 
             <button class="back-to-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
